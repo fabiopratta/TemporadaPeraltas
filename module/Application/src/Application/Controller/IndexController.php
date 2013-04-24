@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework (http://framework.zend.com/)
  *
@@ -12,10 +13,15 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
-class IndexController extends AbstractActionController
-{
-    public function indexAction()
-    {
+class IndexController extends AbstractActionController {
+
+    public function indexAction() {
+        $firephp = $this->getServiceLocator()->get('Zend\Log\FirePhp');
+        $firephp->info("info log");
+        $firephp->warn("warn log");
+        $firephp->crit("critical log");
+
         return new ViewModel();
     }
+
 }
